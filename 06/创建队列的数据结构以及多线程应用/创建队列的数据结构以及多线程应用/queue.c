@@ -54,7 +54,7 @@ void deQ(myQ *p) {
 }
 
 mytype getlast(myQ *p) {
-	if (isEmpty(p)==1) {
+	if (isEmpty(p) == 1) {
 		printf("没有屎");
 		return 0;
 	}
@@ -71,7 +71,7 @@ void print(myQ *p) {
 	}
 	else {
 		for (int i = p->front; i < p->rear; i++) {
-			printf("%d  ", p->data[i]);							//打印
+			printf("%p  ", p->data[i]);							//打印
 		}
 	}
 }

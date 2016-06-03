@@ -3,9 +3,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<memory.h>
+#include<time.h>
+#include<Windows.h>
+#include<process.h>
 
 #define N 100
-#define mytype int
+#define mytype int*
 
 struct MyQueue{
 	mytype data[N];						//数组存储队列
