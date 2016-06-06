@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "顺序队列和环形队列", "顺序队列和环形队列\顺序队列和环形队列.vcxproj", "{1C20C491-C85A-43F1-9289-8BF158555A7B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "环形队列", "环形队列\环形队列.vcxproj", "{C863429E-5FE7-4A38-BBFE-8BC49EE47765}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{1C20C491-C85A-43F1-9289-8BF158555A7B}.Release|x64.Build.0 = Release|x64
 		{1C20C491-C85A-43F1-9289-8BF158555A7B}.Release|x86.ActiveCfg = Release|Win32
 		{1C20C491-C85A-43F1-9289-8BF158555A7B}.Release|x86.Build.0 = Release|Win32
+		{C863429E-5FE7-4A38-BBFE-8BC49EE47765}.Debug|x64.ActiveCfg = Debug|x64
+		{C863429E-5FE7-4A38-BBFE-8BC49EE47765}.Debug|x64.Build.0 = Debug|x64
+		{C863429E-5FE7-4A38-BBFE-8BC49EE47765}.Debug|x86.ActiveCfg = Debug|Win32
+		{C863429E-5FE7-4A38-BBFE-8BC49EE47765}.Debug|x86.Build.0 = Debug|Win32
+		{C863429E-5FE7-4A38-BBFE-8BC49EE47765}.Release|x64.ActiveCfg = Release|x64
+		{C863429E-5FE7-4A38-BBFE-8BC49EE47765}.Release|x64.Build.0 = Release|x64
+		{C863429E-5FE7-4A38-BBFE-8BC49EE47765}.Release|x86.ActiveCfg = Release|Win32
+		{C863429E-5FE7-4A38-BBFE-8BC49EE47765}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
