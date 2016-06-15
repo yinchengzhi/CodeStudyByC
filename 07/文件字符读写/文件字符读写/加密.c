@@ -38,7 +38,7 @@ void jie(char *path, char *newpath) {
 
 }
 
-void main() {
+void main5() {
 
 	char *path = "C:\\Users\\Ollydebug\\Desktop\\test1\\Q.txt";
 	char *pathjia = "C:\\Users\\Ollydebug\\Desktop\\test1\\Qjia.txt";

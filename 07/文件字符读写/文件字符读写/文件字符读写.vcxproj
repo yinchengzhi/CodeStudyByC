@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="二进制加密.c" />
     <ClCompile Include="加密.c" />
     <ClCompile Include="文件操作.c" />
   </ItemGroup>
