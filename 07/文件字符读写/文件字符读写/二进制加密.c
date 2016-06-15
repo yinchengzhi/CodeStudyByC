@@ -39,10 +39,45 @@ void runwithpassword(char *path, char *newpath,char *password) {
 
 }
 
+int getfilesize(char *path) {
+
+	int i = -1;
+	FILE *pfr = fopen(path, "rb");
+	if (pfr == NULL) {
+		return -1;
+	}
+	else {
+		while (!feof(pfr)) {
+			char ch = fgetc(pfr);
+			//if (ch == EOF) {
+			//	puts("EOF");
+			//}
+			i++;												//读取一个字符前进一次
+		}
+		fclose(pfr);
+		return i;
+	}
+
+}
+
+int getfilesizeseek(char *path) {
+	int i = -1;
+	FILE *pfr = fopen(path, "rb");
+	if (pfr == NULL) {
+		return -1;
+	}
+	else {
+		fseek(pfr, 0, SEEK_END);								//文件指针移动到末尾
+		int length = ftell(pfr);								//获取当前文件指针距离开头的长度
+	}
+}
+
+
 void main() {
 
-	run(path, pathjia);
-	run(pathjia, pathjie);
+	//run(path, pathjia);
+	//run(pathjia, pathjie);
+	printf("%d", getfilesizeseek(path));
 
 	system("pause");
 }
