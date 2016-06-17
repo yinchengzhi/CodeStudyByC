@@ -18,5 +18,8 @@
     <ClCompile Include="加密解密文本.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="二进制文件加密解密.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

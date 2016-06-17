@@ -148,7 +148,7 @@ int getfilesizet(char *path) {
 }
 
 
-void main() {
+void main1() {
 
 
 	//printf("%d,%d\n", '\r', '\n');
