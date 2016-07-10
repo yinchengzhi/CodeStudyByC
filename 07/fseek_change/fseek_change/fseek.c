@@ -44,7 +44,7 @@ int main() {
 
 */
 
-void main2() {
+void main1() {
 
 	char path[150] = "C:\\Users\\Ollydebug\\Desktop\\CodeCStudy\\07\\1.txt";
 	//FILE *pf = fopen(path, "a+");					//尾部添加,文件指针在尾部
