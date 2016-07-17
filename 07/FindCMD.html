@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+</head>
+
+<body>
+<form action="http://test.nsscn.org/zc/index.php?act=login" method="post" >
+    <input type="text" name="username"/>
+    <input type="text" name="password"/>
+    <input type="text" name="client" value="android"/>
+    <input type="submit"/>
+</form>
+
+<form action="http://test.nsscn.org/zc/index.php?act=plans&op=plans_list" method="post" >
+    <input type="text" name="key" value=""/>
+    <input type="text" name="order" value="1"/>
+    <input type="text" name="page" value="10"/>
+    <input type="text" name="curpage" value="0"/>
+    <input type="submit"/>
+</form>
+
+
+
+<form action=s"http://test.nsscn.org/zc/index.php?act=login&op=register" method="post" >
+    <input type="text" name="username" />
+    <input type="text" name="password" />
+    <input type="text" name="password_confirm" />
+    <input type="text" name="email" />
+    <input type="text" name="client" value="android"/>
+    <input type="submit"/>
+</form>
+
+商品详细信息：
+<form action="http://test.nsscn.org/zc/" method="get" >
+    <input type="text" name="act" value="goods"/>
+    <input type="text" name="op" value="goods_detail"/>
+    <input type="text" name="goods_id" />
+    <input type="text" name="key" />
+    <input type="submit"/>
+</form>
+</body>
+</html>
