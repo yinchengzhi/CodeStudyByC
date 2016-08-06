@@ -4,6 +4,7 @@
 #include<stdlib.h>
 
 char *path = "G:\\BigData.txt";
+char *newpath = "G:\\BigDataN.txt";
 #define N 15186998
 
 
@@ -30,7 +31,7 @@ void space(char *path, int num) {
 	char ** pathes = malloc(sizeof(char*)*num);
 	for (int i = 0; i < num; i++) {
 		pathes[i] = malloc(sizeof(char) * 256);
-		sprintf(pathes[i], "G:\\BigData.txt%d", i + 1);
+		sprintf(pathes[i], "G:\\BigData%d.txt", i + 1);
 		printf("\n%s", pathes[i]);
 	}
 
@@ -39,17 +40,17 @@ void space(char *path, int num) {
 	FILE *pf = fopen(path, "r");
 
 	if (pf == NULL) {
-		return -1;
+		return;
 	}
 	else {
 		if (N%num == 0) {
 			//num个,N/num
 			for (int i = 0; i < num; i++) {
-				FILE *pfw = fopen(path[i], "w");			//写入
+				FILE *pfw = fopen(pathes[i], "w");					//写入
 				for (int j = 0; j < N / num; j++) {
 					char str[1024] = { 0 };
 					fgets(str, 1024, pf);
-					fputs(str, pfw);					//读取一行写入一行
+					fputs(str, pfw);								//读取一行写入一行
 				}
 				fclose(pfw);
 			}
@@ -59,21 +60,21 @@ void space(char *path, int num) {
 			//100	9	8*12+4
 
 			for (int i = 0; i < num - 1; i++) {
-				FILE *pfw = fopen(path[i], "w");			//写入
+				FILE *pfw = fopen(pathes[i], "w");					//写入
 				for (int j = 0; j < N / (num - 1); j++) {
 					char str[1024] = { 0 };
 					fgets(str, 1024, pf);
-					fputs(str, pfw);					//读取一行写入一行
+					fputs(str, pfw);								//读取一行写入一行
 				}
 				fclose(pfw);
 			}
 
 			{
-				FILE *pfw = fopen(path[num - 1], "w");			//写入
-				for (int j = 0; j < N % (num - 1); j++) {
+				FILE *pfw = fopen(pathes[num - 1], "w");			//写入
+				for (int j = 0; j < N % (num-1); j++) {
 					char str[1024] = { 0 };
 					fgets(str, 1024, pf);
-					fputs(str, pfw);					//读取一行写入一行
+					fputs(str, pfw);								//读取一行写入一行
 				}
 				fclose(pfw);
 			}
@@ -85,7 +86,35 @@ void space(char *path, int num) {
 
 }
 
-void merge(char *newpath) {
+void merge(char *newpath, int n) {
+	char ** pathes = malloc(sizeof(char*)*n);
+	for (int i = 0; i < n; i++) {
+		pathes[i] = malloc(sizeof(char) * 256);
+		sprintf(pathes[i], "G:\\BigData%d.txt", i + 1);
+		printf("\n%s", pathes[i]);
+	}
+
+	FILE *pf = fopen(newpath, "w");
+
+	if (pf == NULL) {
+		return;
+	}
+	else {
+		for (int i = 0; i < n; i++) {
+			FILE *pfr = fopen(pathes[i], "r");
+
+			while (!feof(pfr)) {
+				char str[1024] = { 0 };
+				fgets(str, 1024, pfr);
+				fputs(str, pf);
+			}
+
+			fclose(pfr);
+
+		}
+
+		fclose(pf);
+	}
 
 }
 
@@ -98,7 +127,7 @@ void main() {
 	int num;
 	scanf("%d", &num);
 	space(path, num);
-
+	merge(newpath, num);
 
 	system("pause");
 }
