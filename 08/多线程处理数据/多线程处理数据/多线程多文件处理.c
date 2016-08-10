@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -13,9 +15,10 @@ struct infos{
 	int length;
 
 	char findstr[100];												//查询
-}myinfo[22];														//22个结构体保存了22个文件的信息
+}myinfo[22] = { 0 };												//22个结构体保存了22个文件的信息
 
-
+HANDLE inithd[22] = { 0 };											//22个初始化线程地址
+HANDLE findhd[22] = { 0 };											//22个查找线程地址
 void runthreadinit(void *p) {
 	struct infos *pinfo = p;
 	FILE *pf = fopen(pinfo->path, "r");
@@ -44,16 +47,41 @@ void runthreadinit(void *p) {
 		}
 
 	}
-	else {
-
-	}
 	fclose(pf);
+
+	printf("线程%d init over\n", pinfo->id);
 }
 
 void runthreadsearch(void *p) {
+	struct infos *pinfo = p;
+	for (int i = 0; i < pinfo->length; i++) {
+		if (pinfo->g_pp[i] != NULL) {
+			char *px = strstr(pinfo->g_pp[i], pinfo->findstr);
+			if (px != NULL) {
+				printf("\n%s", pinfo->g_pp[i]);
+			}
+		}
+	}
 
+	printf("线程%d find over\n", pinfo->id);
+}
+
+void main1x() {
+
+	myinfo[0].id = 1;
+	strcpy(myinfo[0].path, "G:\\BigData.txt");
+	HANDLE pd1 = _beginthread(runthreadinit, 0, &myinfo[0]);
+	WaitForSingleObject(pd1, INFINITE);												//等待
+	strcpy(myinfo[0].findstr, "34243524");											//随便检索一个数据
+
+	HANDLE pd2 = _beginthread(runthreadsearch, 0, &myinfo[0]);
+	WaitForSingleObject(pd2, INFINITE);
+
+	system("pause");
 }
 
 void main() {
+
+
 
 }
