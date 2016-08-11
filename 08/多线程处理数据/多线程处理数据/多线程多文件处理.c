@@ -81,7 +81,23 @@ void main1x() {
 }
 
 void main() {
+	for (int i = 0; i < 22; i++) {
+		myinfo[i].id = i + 1;
+		sprintf(myinfo[i].path, "G:\\BigData.txt", i + 1);
+		strcpy(myinfo[i].findstr, "34243524");
+	}
+
+	for (int i = 0; i < 15; i++) {
+		inithd[i] = _beginthread(runthreadinit, 0, &myinfo[i]);
+	}
+
+	WaitForMultipleObjects(15, inithd, TRUE, INFINITE);					//µÈ´ý
+	system("pause");
+	
+	for (int i = 0; i < 15; i++) {
+		findhd[i] = _beginthread(runthreadsearch, 0, &myinfo[i]);
+	}
 
 
-
+	system("pause");
 }
