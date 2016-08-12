@@ -138,6 +138,7 @@ int getN(char *path) {
 	}
 }
 
+
 void main() {
 	init(path);
 	while (1) {
