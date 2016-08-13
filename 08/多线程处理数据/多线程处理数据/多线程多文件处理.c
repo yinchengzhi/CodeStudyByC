@@ -7,6 +7,10 @@
 #include<process.h>
 #include<Windows.h>
 
+//多线程多文件，实现线程的调度，设计模式.
+//释放内存
+//内存不够的情况下，排队完成任务
+
 struct infos{
 	char path[256];													//原始
 	int id;
@@ -66,6 +70,19 @@ void runthreadsearch(void *p) {
 	printf("线程%d find over\n", pinfo->id);
 }
 
+void freeall(struct infos *pinfo) {
+
+	printf("free all start!\n");
+
+	for (int i = 0; i < pinfo->length; i++) {
+		free(pinfo->g_pp[i]);														//释放指针数组每一个指针对应的内存
+	}
+	free(pinfo->g_pp);																//释放
+
+	printf("free all end!\n");
+}
+
+
 void main1x() {
 
 	myinfo[0].id = 1;
@@ -78,12 +95,17 @@ void main1x() {
 	WaitForSingleObject(pd2, INFINITE);
 
 	system("pause");
+	freeall(&myinfo[0]);
+
+	system("pause");
 }
+
+
 
 void main() {
 	for (int i = 0; i < 22; i++) {
 		myinfo[i].id = i + 1;
-		sprintf(myinfo[i].path, "G:\\BigData.txt", i + 1);
+		sprintf(myinfo[i].path, "G:\\BigData%d.txt", i + 1);
 		strcpy(myinfo[i].findstr, "34243524");
 	}
 
@@ -98,6 +120,37 @@ void main() {
 		findhd[i] = _beginthread(runthreadsearch, 0, &myinfo[i]);
 	}
 
+	WaitForMultipleObjects(15, findhd, TRUE, INFINITE);					//等待
+	system("pause");
+
+	printf("开始释放!\n");
+
+	for (int i = 0; i < 15; i++) {
+		freeall(&myinfo[i]);
+	}
+	printf("结束释放!\n");
+
+	system("pause");
+
+
+	for (int i = 15; i < 22; i++) {
+		inithd[i] = _beginthread(runthreadinit, 0, &myinfo[i]);
+	}
+
+	WaitForMultipleObjects(7, inithd + 15, TRUE, INFINITE);				//等待
+
+	system("pause");
+
+	for (int i = 15; i < 22; i++) {
+		findhd[i] = _beginthread(runthreadsearch, 0, &myinfo[i]);
+	}
+
+	WaitForMultipleObjects(7, findhd + 15, TRUE, INFINITE);				//等待
+	system("pause");
+
+	for (int i = 15; i < 22; i++) {
+		freeall(&myinfo[i]);
+	}
 
 	system("pause");
 }
