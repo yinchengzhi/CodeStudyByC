@@ -2,7 +2,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-
+#include<string.h>
 
 void write() {
 	int a[100];
@@ -31,9 +31,6 @@ void read() {
 
 void main() {
 	
-
 	read();
-
-
 	system("pause");
 }
