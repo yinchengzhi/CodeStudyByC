@@ -23,7 +23,21 @@ void main1() {
 	system("pause");
 }
 
-void main() {
+int com(void*p1, void *p2) {
+	int *pint1 = p1;
+	int *pint2 = p2;
+	if (*pint1>*pint2) {
+		return 1;							//大于
+	}
+	else if (*pint1 < *pint2) {
+		return -1;							//小于
+	}
+	else {
+		return 0;
+	}
+}
+
+void memsort() {
 	int *p = malloc(400);
 	FILE *pf = fopen("G:\\test.data", "rb");
 	fread(p, sizeof(int), 100, pf);
@@ -32,7 +46,18 @@ void main() {
 	for (int i = 0; i < 100; i++) {
 		printf("\n%d", p[i]);
 	}
+	qsort(p, 100, 4, com);				//排序
 
+	printf("sort later\n");
+
+	for (int i = 0; i < 100; i++) {
+		printf("\n%d", p[i]);
+	}
+}
+
+void main() {
+
+	memsort();
 	system("pause");
 
 }
