@@ -6,6 +6,7 @@
 
 //获取多少行 ,创建数组a[N]
 //获取每一行的宽度 a[N] = Width
+//读取的每一个字符串都有\r\n
 
 int getN() {
 	int i = -1;
@@ -14,13 +15,16 @@ int getN() {
 		return -1;
 	}
 	else {
+		int alllength = 0;
 		i = 0;
 		while (!feof(pf)) {
 			char str[50] = { 0 };
 			fgets(str, 50, pf);
+			alllength += strlen(str);
 			printf("%d %s", strlen(str), str);
 			i++;
 		}
+		printf("\nalll = %d\n", alllength);
 		fclose(pf);
 		return i;
 	}
@@ -28,7 +32,7 @@ int getN() {
 
 void main() {
 
-	printf("%d", getN());
+	printf("\n行 = %d", getN());
 
 	system("pause");
 }
