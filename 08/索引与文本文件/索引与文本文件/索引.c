@@ -26,10 +26,8 @@ int getN() {
 		while (!feof(pf)) {
 			char str[50] = { 0 };
 			fgets(str, 50, pf);
-
-			allindex.pindex[i] = alllength;
 			alllength += strlen(str);
-			printf("%d %s", strlen(str), str);
+			printf("%d %d %s", strlen(str), i, str);
 			i++;
 		}
 		printf("\nalll = %d\n", alllength);
@@ -50,11 +48,9 @@ void initindex() {
 		while (!feof(pf)) {
 			char str[50] = { 0 };
 			fgets(str, 50, pf);
-
-
 			allindex.pindex[i] = alllength;
 			alllength += strlen(str);
-			printf("i=%d index[%d] = %d,with = %d", i, i, allindex.pindex[i], strlen(str));
+			printf("\ni=%d index[%d] = %d,with = %d", i, i, allindex.pindex[i], strlen(str));
 			i++;
 		}
 
@@ -68,7 +64,19 @@ void main() {
 	allindex.lenght = getN();
 	printf("\n–– = %d", allindex.lenght);
 	allindex.pindex = calloc(allindex.lenght, sizeof(int));
+	initindex();
 
+	FILE *pf = fopen("test.txt", "rb");
+	while (1) {
+		int num = 0;
+		scanf("%d", &num);
+		fseek(pf, allindex.pindex[num], SEEK_SET);
+		char str[128] = { 0 };
+		fgets(str, 128, pf);								//∂¡»°
+		printf("%s", str);
+	}
+
+	fclose(pf);
 
 	system("pause");
 }
