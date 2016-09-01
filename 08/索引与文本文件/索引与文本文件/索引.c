@@ -10,7 +10,7 @@
 
 struct index {
 	int *pindex;
-	int lenght;
+	int length;
 }allindex;
 
 
