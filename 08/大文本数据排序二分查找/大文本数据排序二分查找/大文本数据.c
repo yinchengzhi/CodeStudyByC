@@ -23,7 +23,7 @@ int getN() {
 	else {
 		int i = 0;
 		while (!feof(pf)) {
-			char str[50];	
+			char str[50];
 			fgets(str, 50, pf);																 //读取
 			i++;
 		}
@@ -41,7 +41,7 @@ void eatN(char *str) {
 	}
 }
 
-void initmem() {
+int initmem() {
 	g_pp = calloc(N, sizeof(char *));						    							//分配指针数组
 	FILE *pf = fopen("file.txt", "r");
 	if (pf == NULL) {
@@ -59,6 +59,8 @@ void initmem() {
 			printf("%s", g_pp[i]);														//显示测试
 		}
 	}
+
+	return 0;
 }
 
 int com(void *p1, void *p2) {
@@ -81,7 +83,7 @@ void show() {
 
 void writetofile() {
 	FILE *pf = fopen("filesort.txt", "w");
-	
+
 	for (int i = 0; i < N; i++) {
 		char temp[100] = { 0 };
 		sprintf(temp, "%s\n", g_pp[i]);
@@ -92,7 +94,7 @@ void writetofile() {
 }
 
 
-void init(char *path) {
+int init(char *path) {
 
 	printf("索引数组开始分配\n");
 	allindex.length = N;
@@ -137,6 +139,7 @@ void init(char *path) {
 	fclose(pfr1);
 	printf("结束读取\n");
 
+	return 0;
 }
 
 
@@ -211,26 +214,64 @@ void main索引文件() {
 	system("pause");
 }
 
-void binsearch() {
+void eatg(char *str) {
+	while (*str != '\0') {
+		if (*str == '-') {
+			*str = '\0';
+		}
+		str++;
+	}
+}
+
+void binsearch(char *searchstr) {
 	int tou = 0;
 	int wei = N - 1;
+	int flag = 0;
+
 	while (tou <= wei) {
 		int zhong = (tou + wei) / 2;
+		char zhongstr[256] = { 0 };
 		FILE *pf1 = fopen("index.txt", "rb");
 		FILE *pf2 = fopen("filesort.txt", "rb");
 
 		int indexnum = 0;
-		fseek(pf1, num * sizeof(int), SEEK_SET);
-		fread(&indexnum, sizeof(int), 1, pf1);						//读索引到indexnum
+		fseek(pf1, zhong * sizeof(int), SEEK_SET);
+		fread(&indexnum, sizeof(int), 1, pf1);							//读索引zhong到indexnum
 
 		fseek(pf2, indexnum, SEEK_SET);
-		char str[128] = { 0 };
-		fgets(str, 128, pf2);										//读取
-		printf("\n%s", str);
+
+		fgets(zhongstr, 128, pf2);										//读取
 
 		fclose(pf1);
 		fclose(pf2);
+
+		eatN(zhongstr);
+		char pnewzhongstr[256] = { 0 };
+		sprintf(pnewzhongstr, zhongstr);
+		eatg(pnewzhongstr);												//遇到-就终止
+
+		int res = strcmp(pnewzhongstr, searchstr);						//1,0,-1
+
+		if (res == 0) {
+			flag = 1;
+			printf("%s", zhongstr);
+			break;
+		}
+		else if (res == 1) {
+			wei = zhong - 1;
+		}
+		else {
+			tou = zhong + 1;
+		}
 	}
+
+	if (flag) {
+		printf("\nfind!");
+	}
+	else {
+		printf("\n not find!");
+	}
+
 }
 
 void main() {
