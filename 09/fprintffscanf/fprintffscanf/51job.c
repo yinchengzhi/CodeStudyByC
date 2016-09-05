@@ -9,7 +9,7 @@ typedef struct jobinfo{
 
 }INFO,*PINFO;																	//INFO结构体,PINFO指针
 
-void main() {
+void main1x() {
 	PINFO p = calloc(2435,sizeof(INFO));										//分配内存
 
 	FILE *pfr = fopen("G:\\BigData.txt", "r");

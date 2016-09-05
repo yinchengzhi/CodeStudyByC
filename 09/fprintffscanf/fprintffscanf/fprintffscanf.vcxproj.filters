@@ -21,5 +21,8 @@
     <ClCompile Include="51job.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="7k7k.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
