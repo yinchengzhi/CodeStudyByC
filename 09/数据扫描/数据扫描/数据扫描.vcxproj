@@ -110,6 +110,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="类的运行.cpp" />
+    <ClCompile Include="文件读写填空.cpp" />
     <ClCompile Include="数据扫描.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
