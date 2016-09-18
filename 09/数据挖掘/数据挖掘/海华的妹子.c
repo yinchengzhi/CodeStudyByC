@@ -28,9 +28,11 @@ void init() {
 	FILE *pf = fopen(path, "r");
 
 	for (int i = 0; i < 151; i++) {
+
+		char str[2048] = { 0 };
+		fgets(str, 2048, pf);
+
 		if (i >= 1) {
-			char str[2048] = { 0 };
-			fgets(str, 2048, pf);
 			strcpy(ph[i - 1].allstr, str);							   //¿½±´×Ü´®
 			sscanf(str, "%d %s %s %d %d %s %s %s", &ph[i - 1].id, ph[i - 1].name,
 				ph[i - 1].sex, &ph[i - 1].age, &ph[i - 1].tall, ph[i - 1].study,
