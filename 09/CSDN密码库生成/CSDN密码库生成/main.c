@@ -2,6 +2,13 @@
 
 void main() {
 
+
+	system("pause");
+}
+
+
+void main1() {
+
 	PINFO phead = NULL;
 
 
@@ -24,6 +31,8 @@ void main() {
 	printf("\n\n");
 	show(phead);
 
+	writetofile(phead, "C:\\X.txt");
+	system("C:\\X.txt");
 
 	system("pause");
 }

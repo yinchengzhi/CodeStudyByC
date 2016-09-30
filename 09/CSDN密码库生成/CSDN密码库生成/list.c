@@ -76,14 +76,22 @@ int isin(PINFO phead, char password[20]) {
 	while (p != NULL) {
 		if (strcmp(p->password, password) == 0) {
 			p->ci += 1;
-			return 1;							//存在
+			return 1;											//存在
 		}
 		p = p->pNext;
 	}
-	return 0;									//不在链表内部
+	return 0;													//不在链表内部
 }
 
 //写入到文件
-void writetofile(PINFO phead) {
+void writetofile(PINFO phead, char path[100]) {
 
+	FILE *pf = fopen(path, "w");
+	PINFO p = phead;
+	while (p != NULL) {
+		fprintf(pf, "%s %d\n", p->password, p->ci);				//打印到文件
+		p = p->pNext;
+	}
+	fclose(pf);
+	return 0;													//不在链表内部
 }
