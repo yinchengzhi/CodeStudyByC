@@ -6,7 +6,6 @@ void main() {
 	system("pause");
 }
 
-
 void main1() {
 
 	PINFO phead = NULL;
