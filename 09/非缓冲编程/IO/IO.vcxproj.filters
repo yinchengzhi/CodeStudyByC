@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="缓冲区.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="文本的读写.c">
+    <ClCompile Include="IO.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

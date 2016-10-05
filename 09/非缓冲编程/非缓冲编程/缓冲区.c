@@ -15,7 +15,7 @@ void main1() {
 }
 
 
-void main() {
+void main2() {
 	FILE *pf = fopen("G:\\6.txt", "w+");			//w 模式不可写
 	fputs("Hello Google", pf);						//没有实时的写入 没有生效
 	

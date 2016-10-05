@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "非缓冲编程", "非缓冲编程\非缓冲编程.vcxproj", "{E9FF3748-11F0-4AF5-ABCC-C94E67E5AC31}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IO", "IO\IO.vcxproj", "{92EBF21B-F747-4122-98B8-594A615029A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{E9FF3748-11F0-4AF5-ABCC-C94E67E5AC31}.Release|x64.Build.0 = Release|x64
 		{E9FF3748-11F0-4AF5-ABCC-C94E67E5AC31}.Release|x86.ActiveCfg = Release|Win32
 		{E9FF3748-11F0-4AF5-ABCC-C94E67E5AC31}.Release|x86.Build.0 = Release|Win32
+		{92EBF21B-F747-4122-98B8-594A615029A1}.Debug|x64.ActiveCfg = Debug|x64
+		{92EBF21B-F747-4122-98B8-594A615029A1}.Debug|x64.Build.0 = Debug|x64
+		{92EBF21B-F747-4122-98B8-594A615029A1}.Debug|x86.ActiveCfg = Debug|Win32
+		{92EBF21B-F747-4122-98B8-594A615029A1}.Debug|x86.Build.0 = Debug|Win32
+		{92EBF21B-F747-4122-98B8-594A615029A1}.Release|x64.ActiveCfg = Release|x64
+		{92EBF21B-F747-4122-98B8-594A615029A1}.Release|x64.Build.0 = Release|x64
+		{92EBF21B-F747-4122-98B8-594A615029A1}.Release|x86.ActiveCfg = Release|Win32
+		{92EBF21B-F747-4122-98B8-594A615029A1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
