@@ -110,6 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="二进制读写.c" />
     <ClCompile Include="文本的读写.c" />
     <ClCompile Include="缓冲区.c" />
   </ItemGroup>

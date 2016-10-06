@@ -21,5 +21,8 @@
     <ClCompile Include="文本的读写.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="二进制读写.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

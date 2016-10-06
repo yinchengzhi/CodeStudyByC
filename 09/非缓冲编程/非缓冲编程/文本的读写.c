@@ -36,7 +36,7 @@ void main12() {
 }
 
 //fgets
-void main() {
+void main123() {
 
 	int fhdr = _open(path, O_RDONLY);
 	int fhdw = _open(newpath, _O_CREAT | O_WRONLY);
