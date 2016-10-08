@@ -1,8 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 
+//..ÉÏÒ»²ã Ä¿Â¼
 //"cmd1=123&cmd2=456&go=%BD%F8%C8%E8"
 
 void main() {
@@ -12,7 +15,7 @@ void main() {
 	printf("%s", szpost);
 
 	char *p1 = strchr(szpost, '&');
-	
+
 	if (*p1 != NULL) {
 		*p1 = '\0';
 	}
@@ -23,6 +26,7 @@ void main() {
 
 	char cmd[256] = { 0 };
 	sprintf(cmd, "%s> 1.txt", szpost + 5);
+	system(cmd);
 
 	FILE *pf = fopen("1.txt", "r");
 	while (!feof(pf)) {
@@ -31,7 +35,7 @@ void main() {
 			printf("<br>");
 		}
 		else {
-
+			putchar(ch);
 		}
 	}
 
