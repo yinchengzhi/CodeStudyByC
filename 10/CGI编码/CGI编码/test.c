@@ -27,9 +27,18 @@ void main1() {
 
 char *change(char *str) {
 	char *tempstr = malloc(strlen(str) + 1);				//strlen
-	memset(tempstr, 0, sizeof(str) + 1);
+	//memset(tempstr, 0, sizeof(str) + 1);
 	int x, y;
 	char assii_1, assii_2;
+
+	while (tempstr[x]) {
+		if ((tempstr[x] = str[y]) == '%') {
+
+		}
+	}
+
+	return tempstr;
+
 }
 
 void main() {
