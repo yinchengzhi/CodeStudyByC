@@ -28,14 +28,36 @@ void main1() {
 char *change(char *str) {
 	char *tempstr = malloc(strlen(str) + 1);				//strlen
 	//memset(tempstr, 0, sizeof(str) + 1);
-	int x, y;
+	int x = 0, y = 0;
 	char assii_1, assii_2;
 
 	while (tempstr[x]) {
 		if ((tempstr[x] = str[y]) == '%') {
 
+			//y+1,y+2
+			if (str[y + 1] >= 'A') {
+				assii_1 = str[y + 1] - 55;
+			}
+			else {
+				assii_1 = str[y + 1] - 48;
+			}
+
+			if (str[y + 2] >= 'A') {
+				assii_2 = str[y + 2] - 55;
+			}
+			else {
+				assii_2 = str[y + 2] - 48;
+			}
+
+			tempstr[x] = assii_1 * 16 + assii_2;
+			y += 2;
+
 		}
+		x++;
+		y++;
 	}
+
+	tempstr[x] = '\0';
 
 	return tempstr;
 
