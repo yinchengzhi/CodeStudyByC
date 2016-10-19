@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "服务器开发", "服务器开发\服务器开发.vcxproj", "{826053C7-757A-491C-98B6-5C10055033B5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CGI大数据查询", "CGI大数据查询\CGI大数据查询.vcxproj", "{7C247788-5098-4ED9-843E-86C6DCD16C67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{826053C7-757A-491C-98B6-5C10055033B5}.Release|x64.Build.0 = Release|x64
 		{826053C7-757A-491C-98B6-5C10055033B5}.Release|x86.ActiveCfg = Release|Win32
 		{826053C7-757A-491C-98B6-5C10055033B5}.Release|x86.Build.0 = Release|Win32
+		{7C247788-5098-4ED9-843E-86C6DCD16C67}.Debug|x64.ActiveCfg = Debug|x64
+		{7C247788-5098-4ED9-843E-86C6DCD16C67}.Debug|x64.Build.0 = Debug|x64
+		{7C247788-5098-4ED9-843E-86C6DCD16C67}.Debug|x86.ActiveCfg = Debug|Win32
+		{7C247788-5098-4ED9-843E-86C6DCD16C67}.Debug|x86.Build.0 = Debug|Win32
+		{7C247788-5098-4ED9-843E-86C6DCD16C67}.Release|x64.ActiveCfg = Release|x64
+		{7C247788-5098-4ED9-843E-86C6DCD16C67}.Release|x64.Build.0 = Release|x64
+		{7C247788-5098-4ED9-843E-86C6DCD16C67}.Release|x86.ActiveCfg = Release|Win32
+		{7C247788-5098-4ED9-843E-86C6DCD16C67}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
