@@ -1,3 +1,5 @@
+#define  _CRT_SECURE_NO_WARNINGS
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -41,7 +43,7 @@ char *change(char *str) {
 
 }
 
-void search(char *path) {
+void search(char *path,char *searchstr) {
 	FILE *pf = fopen(path, "r");
 	if (pf == NULL) {
 		printf("<br>打开失败");
@@ -50,11 +52,21 @@ void search(char *path) {
 		while (!feof(pf)) {
 			char str[512] = { 0 };
 			fgets(str, 512, pf);
+			char *p = strstr(str, searchstr);
+
+			if (p != NULL) {
+				puts(str);
+				puts("<br>");
+			}
+
 		}
+
+		fclose(pf);
 	}
 }
 
-void main() {
+
+void main1() {
 	printf("Content-type:text/html\n\n");		//换行
 	
 	char szpost[256] = { 0 };
@@ -77,5 +89,16 @@ void main() {
 
 	printf("<br>%s", p1 + 6);
 	printf("<br>%s", change(p1 + 6));
+
+	char path[256] = "G:\\BigData.txt";
+	search(path, change(szpost + 5));						//搜索解码之后的
+
+
+
+}
+
+void main() {
+	char path[256] = "G:\\BigData.txt";
+	search(path, "1424543");
 
 }
