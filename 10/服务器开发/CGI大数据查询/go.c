@@ -43,7 +43,7 @@ char *change(char *str) {
 
 }
 
-void search(char *path,char *searchstr) {
+void search(char *path, char *searchstr) {
 	FILE *pf = fopen(path, "r");
 	if (pf == NULL) {
 		printf("<br>打开失败");
@@ -66,9 +66,9 @@ void search(char *path,char *searchstr) {
 }
 
 
-void main1() {
+void main() {
 	printf("Content-type:text/html\n\n");		//换行
-	
+
 	char szpost[256] = { 0 };
 	gets_s(szpost, sizeof(szpost));
 
@@ -93,11 +93,11 @@ void main1() {
 	char path[256] = "G:\\BigData.txt";
 	search(path, change(szpost + 5));						//搜索解码之后的
 
-
-
 }
 
-void main() {
+void main123() {
+
+	printf("Content-type:text/html\n\n");		//换行
 	char path[256] = "G:\\BigData.txt";
 	search(path, "1424543");
 
