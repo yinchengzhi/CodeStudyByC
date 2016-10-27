@@ -3,7 +3,7 @@
 
 //限定程序 只能打开
 #define SIZE 4096
-char pipename[128] = "yinchengpipe";
+char pipename[128] = "\\\\. \\Pipe\\yinchengzhiPipe";
 HANDLE m_pipe = NULL;							//管道的句柄
 
 void start() {
@@ -15,6 +15,18 @@ void start() {
 		SIZE,													//输入缓冲区的大小
 		0,														//超时，无限等待
 		NULL);
+
+	if (m_pipe == NULL) {
+		printf("创建失败!");
+	}
+
+	BOOL isconnect = ConnectNamedPipe(m_pipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);		//是否连上
+	if (isconnect) {
+		MessageBoxA(0, "connected ok", "connected ok", 0);
+	}
+	else {
+		printf("连接失败");
+	}
 
 }
 
@@ -31,6 +43,18 @@ void test() {
 
 }
 
+void read() {
+	char buf[SIZE] = { 0 };
+	int last;
+	if (ReadFile(m_pipe, buf, SIZE, &last,NULL)) {
+
+	}
+
+}
+
+void write() {
+
+}
 
 void main() {
 
