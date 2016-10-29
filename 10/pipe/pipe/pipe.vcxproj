@@ -22,6 +22,7 @@
     <ProjectGuid>{378942CD-630E-4977-A17E-E3AD81872EA6}</ProjectGuid>
     <RootNamespace>pipe</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>pipeclient</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
