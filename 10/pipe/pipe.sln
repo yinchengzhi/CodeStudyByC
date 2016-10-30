@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pipe", "pipe\pipe.vcxproj", "{378942CD-630E-4977-A17E-E3AD81872EA6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pipeclient", "pipe\pipe.vcxproj", "{378942CD-630E-4977-A17E-E3AD81872EA6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pipeserver", "pipeserver\pipeserver.vcxproj", "{C32B1D0F-2D2E-4F9F-974E-10157DB0F556}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "客户端", "客户端\客户端.vcxproj", "{3952E0C1-1420-4565-8CFE-A59B4C6C508F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "云端", "云端\云端.vcxproj", "{8B911E21-8379-43D8-B40A-C8BB66928978}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,22 @@ Global
 		{C32B1D0F-2D2E-4F9F-974E-10157DB0F556}.Release|x64.Build.0 = Release|x64
 		{C32B1D0F-2D2E-4F9F-974E-10157DB0F556}.Release|x86.ActiveCfg = Release|Win32
 		{C32B1D0F-2D2E-4F9F-974E-10157DB0F556}.Release|x86.Build.0 = Release|Win32
+		{3952E0C1-1420-4565-8CFE-A59B4C6C508F}.Debug|x64.ActiveCfg = Debug|x64
+		{3952E0C1-1420-4565-8CFE-A59B4C6C508F}.Debug|x64.Build.0 = Debug|x64
+		{3952E0C1-1420-4565-8CFE-A59B4C6C508F}.Debug|x86.ActiveCfg = Debug|Win32
+		{3952E0C1-1420-4565-8CFE-A59B4C6C508F}.Debug|x86.Build.0 = Debug|Win32
+		{3952E0C1-1420-4565-8CFE-A59B4C6C508F}.Release|x64.ActiveCfg = Release|x64
+		{3952E0C1-1420-4565-8CFE-A59B4C6C508F}.Release|x64.Build.0 = Release|x64
+		{3952E0C1-1420-4565-8CFE-A59B4C6C508F}.Release|x86.ActiveCfg = Release|Win32
+		{3952E0C1-1420-4565-8CFE-A59B4C6C508F}.Release|x86.Build.0 = Release|Win32
+		{8B911E21-8379-43D8-B40A-C8BB66928978}.Debug|x64.ActiveCfg = Debug|x64
+		{8B911E21-8379-43D8-B40A-C8BB66928978}.Debug|x64.Build.0 = Debug|x64
+		{8B911E21-8379-43D8-B40A-C8BB66928978}.Debug|x86.ActiveCfg = Debug|Win32
+		{8B911E21-8379-43D8-B40A-C8BB66928978}.Debug|x86.Build.0 = Debug|Win32
+		{8B911E21-8379-43D8-B40A-C8BB66928978}.Release|x64.ActiveCfg = Release|x64
+		{8B911E21-8379-43D8-B40A-C8BB66928978}.Release|x64.Build.0 = Release|x64
+		{8B911E21-8379-43D8-B40A-C8BB66928978}.Release|x86.ActiveCfg = Release|Win32
+		{8B911E21-8379-43D8-B40A-C8BB66928978}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
