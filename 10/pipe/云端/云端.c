@@ -24,11 +24,11 @@ void start() {
 	for (int i = 0; i < startthreadnum; i++) {
 		pipeinst[i].hpipe = CreateNamedPipeA(
 			pipename,												//管道名称
-			PIPE_ACCESS_DUPLEX,										//管道读写属性
-			PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT,	//消息模式，读模式，等待模式阻塞
+			PIPE_ACCESS_DUPLEX|FILE_FLAG_OVERLAPPED,				//管道读写属性
+			PIPE_TYPE_BYTE | PIPE_READMODE_BYTE | PIPE_WAIT,	    //消息模式，读模式，等待模式阻塞
 			PIPE_UNLIMITED_INSTANCES,								//最大个数
-			SIZE,													//输出缓冲区的大小
-			SIZE,													//输入缓冲区的大小
+			0,													//输出缓冲区的大小
+			0,													//输入缓冲区的大小
 			0,														//超时，无限等待
 			NULL);
 
