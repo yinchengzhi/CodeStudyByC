@@ -70,7 +70,7 @@ void start() {
 			NULL);
 
 		if (pipeinst[i].hpipe == INVALID_HANDLE_VALUE) {
-			printf("失败");
+			printf("\n%d失败", i);
 			return;
 		}
 		//创建事件

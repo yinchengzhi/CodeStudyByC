@@ -38,10 +38,10 @@ void main() {
 	int nread;
 	run();
 	char winfo[1024] = { 0 };
-	sprintf(winfo, "%d %d", a, b);						   //打印数据
-	WriteFile(m_pipe, winfo, strlen(winfo), NULL, NULL);   //写入成功
-	memset(winfo, 0, sizeof(winfo));					   //清零
-	ReadFile(m_pipe, winfo, 1024, nread, NULL);			   //读取
+	sprintf(winfo, "%d %d", a, b);							    //打印数据
+	WriteFile(m_pipe, winfo, strlen(winfo), &nwrite, NULL);     //写入成功
+	memset(winfo, 0, sizeof(winfo));							//清零
+	ReadFile(m_pipe, winfo, 1024, &nread, NULL);				//读取
 
 	int res;
 	sscanf(winfo, "%d", &res);
