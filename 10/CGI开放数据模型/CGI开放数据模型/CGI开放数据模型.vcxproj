@@ -22,6 +22,7 @@
     <ProjectGuid>{707C0E0D-9244-4036-A9A4-880B184F7C52}</ProjectGuid>
     <RootNamespace>CGI开放数据模型</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>CGI开房数据模型</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

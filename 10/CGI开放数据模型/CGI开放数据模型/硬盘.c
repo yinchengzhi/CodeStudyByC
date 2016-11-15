@@ -69,6 +69,7 @@ void main() {
 	printf("Content-type:text/html\n\n");					//»»ÐÐ
 	
 	//system("ipconfig");
+
 	system("mkdir 1");
 	char szpost[256] = { 0 };
 	gets(szpost);
@@ -89,7 +90,7 @@ void main() {
 	printf("<br>%s", p1 + 6);
 	printf("<br>%s", change(p1 + 6));
 
-	showlist(change(szpost + 5));
+	search(change(szpost + 5));
 
 
 }
