@@ -78,7 +78,7 @@ void search(char *str, char *randpath) {
 			if (g_pp[i] != NULL) {
 				char *p = strstr(g_pp[i], str);									//找到返回地址，找不到返回null
 				if (p != NULL) {
-					puts(g_pp[i]);												//打印
+					//puts(g_pp[i]);											//打印
 					fputs(g_pp[i], pf);											//输出到文件
 				}
 			}
@@ -115,7 +115,11 @@ void start() {
 }
 
 void end() {
-
+	for (int i = 0; i < 10; i++) {
+		CloseHandle(pipeinst[i].hthread);
+		CloseHandle(pipeinst[i].hevent);
+		CloseHandle(pipeinst[i].hpipe);
+	}
 }
 
 void main() {

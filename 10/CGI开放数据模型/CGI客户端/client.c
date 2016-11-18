@@ -21,6 +21,11 @@ void run() {
 }
 
 void main() {
+
+	printf("Content-type:text/html\n\n");					//换行
+
+	system("ipconfig");										//服务器不稳定因素，适当中断
+
 	m_pipe = CreateFileA(pipename,							//名称
 		GENERIC_WRITE | GENERIC_READ,						//读写
 		0,													//共享属性 1，独有
