@@ -9,7 +9,7 @@
 #define SIZE 4096
 #define MAX_CONNECT 128
 int startthreadnum = 10;														//一开始有0个线程存在
-char pipename[128] = "\\\\.\\Pipe\\cloudpipe";
+char pipename[128] = "\\\\.\\Pipe\\cloudpipeA";
 
 #define path "C:\\xampp\\cgi-bin\\kaifang.txt"
 char randpath[1000] = "";
@@ -88,10 +88,12 @@ DWORD WINAPI serverThread(void *lp) {
 		sscanf(szbuf, "%s", searchstr);											//去读查询
 
 		//路径配置
-		search(searchstr);
+		char *pmem = malloc(SIZE);
+		memset(pmem, 0, SIZE);
+		search(searchstr, pmem);
 		memset(szbuf, 0, sizeof(szbuf));										//清零
 
-		WriteFile(curpipe.hpipe, szbuf, strlen(szbuf), &nwrite, NULL);	//写入
+		WriteFile(curpipe.hpipe, pmem, strlen(pmem), &nwrite, NULL);			//写入
 
 		DisconnectNamedPipe(curpipe.hpipe);										//断开
 	}
@@ -104,7 +106,7 @@ void search(char *str,char *psave) {
 			if (g_pp[i] != NULL) {
 				char *p = strstr(g_pp[i], str);									//找到返回地址，找不到返回null
 				if (p != NULL) {
-					strcat(psave, str);
+					strcat(psave, g_pp[i]);
 					strcat(psave, "<br>");
 				}
 			}
@@ -149,7 +151,12 @@ void end() {
 
 void main() {
 	loadfromfile();
-	start();
+
+	//start();
+	char *pmem = malloc(SIZE);
+	memset(pmem, 0, SIZE);
+	search("吴伟", pmem);
+	printf("%s", pmem);
 
 	system("pause");
 }

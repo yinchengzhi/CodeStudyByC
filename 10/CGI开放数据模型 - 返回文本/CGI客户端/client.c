@@ -7,7 +7,7 @@
 
 //限定程序 只能打开
 #define SIZE 1024*1024*30
-char pipename[128] = "\\\\.\\Pipe\\cloudpipe";
+char pipename[128] = "\\\\.\\Pipe\\cloudpipeA";
 HANDLE m_pipe = NULL;										//管道的句柄
 
 int a;
@@ -48,6 +48,7 @@ void main() {
 	memset(winfo, 0, sizeof(winfo));							//清零
 
 	char *pmem = malloc(SIZE);
+	memset(pmem, 0, SIZE);
 	ReadFile(m_pipe, pmem, SIZE, &nread, NULL);					//读取
 	printf("%s", pmem);
 
