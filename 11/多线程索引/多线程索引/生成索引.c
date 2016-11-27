@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<process.h>
 
 char path[256] = "G:\\BigData.txt";
 char indexpath[256] = "G:\\IndexBigData.txt";
@@ -71,8 +72,8 @@ void runmem(void *p) {
 	FILE *pf = fopen(path, "rb");
 	struct info *pi = p;									//指针类型转换
 	for (int i = 0; i < pi->length; i++) {
-		int tempnum = pi->pstart[i];
-		fseek(pf, allindex.pindex[tempnum], SEEK_SET);
+		int tempnum = pi->pstart[i];						//分段
+		fseek(pf, allindex.pindex[tempnum], SEEK_SET);		//根据偏移读文件
 		char str[512] = { 0 };
 		fgets(str, 512, pf);
 		char *px = strstr(str, pi->findstr);				//查找
@@ -83,13 +84,33 @@ void runmem(void *p) {
 
 	}
 
-	int num = 0;
-	scanf("%d", &num);
-
-
-	puts(str);												//显示
-															//printf("\n%s",str);
+	fclose(pf);
 }
+
+void main() {
+	quick();												//载入内存
+	printf("请输入查询的");
+	char str[100] = { 0 };
+	scanf("%s", str);
+
+#define nthread 100
+	struct info pthread[nthread];							//创建线程使用信息数组
+
+	//100 10*10 9 8*12+4
+	if (N%nthread == 0) {
+		for (int i = 0; i < nthread; i++) {
+			pthread[i].id = i;
+			strcpy(pthread[i].findstr, str);
+			pthread[i].length = N / nthread;
+		}
+	}
+	else {
+
+	}
+
+	system("pause");
+}
+
 
 void main() {
 
