@@ -11,15 +11,15 @@ char indexpath[256] = "G:\\IndexBigData.txt";
 #define N 20161124
 
 struct index {
-	int *pindex;											//索引内存首地址
-	int length;												//长度
+	int *pindex;																	//索引内存首地址
+	int length;																		//长度
 }allindex = { 0 };
 
 void init(char *path) {
 
 	printf("\n开始分配");
 	allindex.length = N;
-	allindex.pindex = calloc(N, sizeof(int));				//初始化分配
+	allindex.pindex = calloc(N, sizeof(int));										//初始化分配
 	printf("\n结束分配");
 
 	printf("\n开始生成");
@@ -32,10 +32,10 @@ void init(char *path) {
 		int all_length = 0;
 		for (int i = 0; i < N; i++) {
 			char str[1500] = { 0 };
-			fgets(str, 1500, pf);							//获取字符串
+			fgets(str, 1500, pf);													//获取字符串
 			allindex.pindex[i] = all_length;
 			int length = strlen(str);
-			all_length += length;							//索引位置
+			all_length += length;													//索引位置
 
 		}
 		fclose(pf);
@@ -53,33 +53,33 @@ void init(char *path) {
 
 void quick() {
 	allindex.length = N;
-	allindex.pindex = calloc(N, sizeof(int));				//初始化分配
+	allindex.pindex = calloc(N, sizeof(int));										//初始化分配
 
 	FILE *pfw = fopen(indexpath, "rb");
 	fread(allindex.pindex, sizeof(int), allindex.length, pfw);
 	fclose(pfw);
 }
 
-struct info{
-	int *pstart;											//开始位置
-	int length;												//长度
-	char findstr[20];										//要查找
-	int id;													//
+struct info {
+	int *pstart;																	//开始位置
+	int length;																		//长度
+	char findstr[20];																//要查找
+	int id;																			//
 
 };
 
 void runmem(void *p) {
 	FILE *pf = fopen(path, "rb");
-	struct info *pi = p;									//指针类型转换
+	struct info *pi = p;															//指针类型转换
 	for (int i = 0; i < pi->length; i++) {
-		int tempnum = pi->pstart[i];						//分段
-		fseek(pf, allindex.pindex[tempnum], SEEK_SET);		//根据偏移读文件
+		int tempnum = pi->pstart[i];												//分段
+		fseek(pf, tempnum, SEEK_SET);												//根据偏移读文件
 		char str[512] = { 0 };
 		fgets(str, 512, pf);
-		char *px = strstr(str, pi->findstr);				//查找
+		char *px = strstr(str, pi->findstr);										//查找
 
 		if (px != NULL) {
-			printf("\n%d线程找到%s", pi->id, pi->findstr);	//打印找到的数据
+			printf("\n%d线程找到%s", pi->id, pi->findstr);							//打印找到的数据
 		}
 
 	}
@@ -88,23 +88,44 @@ void runmem(void *p) {
 }
 
 void main() {
-	quick();												//载入内存
+	quick();																		//载入内存
 	printf("请输入查询的");
 	char str[100] = { 0 };
 	scanf("%s", str);
 
 #define nthread 100
-	struct info pthread[nthread];							//创建线程使用信息数组
-
-	//100 10*10 9 8*12+4
+	struct info pthread[nthread];													//创建线程使用信息数组
+	//100	10*10	9	8*12+4
+	//0		9
+	//10	19
+	//90	99
 	if (N%nthread == 0) {
 		for (int i = 0; i < nthread; i++) {
 			pthread[i].id = i;
-			strcpy(pthread[i].findstr, str);
+			strcpy(pthread[i].findstr, str);										//拷贝
 			pthread[i].length = N / nthread;
+			pthread[i].pstart = allindex.pindex + i*(N / nthread);
+			_beginthread(runmem, 0, &pthread[i]);									//传递数据
 		}
 	}
 	else {
+	//100	8*12+4
+
+		for (int i = 0; i < nthread - 1; i++) {
+			pthread[i].id = i;
+			strcpy(pthread[i].findstr, str);										//拷贝
+			pthread[i].length = N / (nthread - 1);
+			pthread[i].pstart = allindex.pindex + i*(N / (nthread - 1));
+			_beginthread(runmem, 0, &pthread[i]);									//传递数据
+		}
+
+		int i = nthread - 1;
+		pthread[i].id = i;
+		strcpy(pthread[i].findstr, str);											//拷贝
+		pthread[i].length = N % (nthread - 1);
+		pthread[i].pstart = allindex.pindex + i*(N / (nthread - 1));
+		_beginthread(runmem, 0, &pthread[i]);
+
 
 	}
 
@@ -112,7 +133,7 @@ void main() {
 }
 
 
-void main() {
+void main1() {
 
 	quick();
 
@@ -127,7 +148,7 @@ void main() {
 		fseek(pf, allindex.pindex[num], SEEK_SET);
 		char str[512] = { 0 };
 		fgets(str, 512, pf);
-		puts(str);										//显示
+		puts(str);																	//显示
 		//printf("\n%s",str);
 	}
 
