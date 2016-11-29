@@ -10,7 +10,7 @@ char indexpath[256] = "G:\\IndexBigData.txt";
 
 #define N 20161124
 
-struct index {
+struct index {																		//索引结构体
 	int *pindex;																	//索引内存首地址
 	int length;																		//长度
 }allindex = { 0 };
@@ -51,7 +51,7 @@ void init(char *path) {
 	printf("\n结束写入");
 }
 
-void quick() {
+void quick() {																		//载入索引文件到内存
 	allindex.length = N;
 	allindex.pindex = calloc(N, sizeof(int));										//初始化分配
 
@@ -186,11 +186,49 @@ void runfile(void *p) {
 }
 
 void main() {
-	quick();																		//载入内存
+
 	printf("请输入查询的");
 	char str[100] = { 0 };
 	scanf("%s", str);
 
 #define nthread 100
+	struct finfo pthread[nthread];													//数组
+	if (N%nthread == 0) {
+		//100
+		//0 10 0-9
+		//90 100 90 99
+		for (int i = 0; i < nthread; i++) {
+			pthread[i].start = (N / nthread)*i;
+			pthread[i].end = (N / nthread)*(i + 1);
+			strcpy(pthread[i].findstr, str);
+			pthread[i].id = i;
+			_beginthread(runfile, 0, &pthread[i]);
+		}
+	}
+	else {
+		//100
+		//8*12+4
+		//0 12
+		//24 36
+		//84 96
+		//96 4
+		for (int i = 0; i < nthread-1; i++) {
+			pthread[i].start = (N / (nthread - 1))*i;
+			pthread[i].end = (N / (nthread - 1))*(i + 1);
+			strcpy(pthread[i].findstr, str);
+			pthread[i].id = i;
+			_beginthread(runfile, 0, &pthread[i]);
+		}
+
+		int i = nthread - 1;
+		pthread[i].start = (N / (nthread - 1))*i;
+		pthread[i].end = (N / (nthread - 1))*i + N % (nthread - 1);
+		strcpy(pthread[i].findstr, str);
+		pthread[i].id = i;
+		_beginthread(runfile, 0, &pthread[i]);
+
+	}
+
+	system("pause");
 
 }
