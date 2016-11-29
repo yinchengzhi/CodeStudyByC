@@ -87,7 +87,7 @@ void runmem(void *p) {
 	fclose(pf);
 }
 
-void main() {
+void main2x() {
 	quick();																		//载入内存
 	printf("请输入查询的");
 	char str[100] = { 0 };
@@ -133,7 +133,7 @@ void main() {
 }
 
 
-void main1() {
+void main1x() {
 
 	quick();
 
@@ -153,4 +153,44 @@ void main1() {
 	}
 
 	system("pause");
+}
+
+struct finfo{
+	int start;
+	int end;
+	int id;
+	char findstr[20];
+};
+
+void runfile(void *p) {
+	struct finfo *pf = p;															//获取传递至参数地址
+	FILE *pf1 = fopen(indexpath, "rb");
+	FILE *pf2 = fopen(path, "rb");
+
+	for (int num = pf->start; num < pf->end; num++) {
+		int indexnum;
+		fseek(pf1, num * sizeof(int), SEEK_SET);
+		fread(&indexnum, sizeof(int), 1, pf1);										//读取索引
+		fseek(pf2, indexnum, SEEK_SET);
+		char str[256] = { 0 };
+		fgets(str, 256, pf2);														//读取
+		char *px = strstr(str, pf->findstr);
+		if (px != NULL) {
+			printf("%d线程找到%s", pf->id, str);
+		}
+
+	}
+
+	fclose(pf1);
+	fclose(pf2);
+}
+
+void main() {
+	quick();																		//载入内存
+	printf("请输入查询的");
+	char str[100] = { 0 };
+	scanf("%s", str);
+
+#define nthread 100
+
 }
