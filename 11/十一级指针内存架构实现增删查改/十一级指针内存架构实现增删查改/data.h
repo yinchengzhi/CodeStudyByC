@@ -8,3 +8,4 @@
 #define	allN	10000000
 
 void init();
+char *convertQQ(char*str);
