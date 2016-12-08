@@ -318,14 +318,13 @@ void changeit(char *str, char *newpass) {
 
 										if (allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])]) {
 
-											printf("%s\n", allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])]);
+											//printf("%s\n", allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])]);
 											printf("ÒÑ¾­´æÔÚ");
-											return;
-										}
-										else {
-											int length = strlen(pass);
+											free(allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])]);
+											int length = strlen(newpass);
 											allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])] = calloc(length + 1, 1);
-											strcpy(allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])], pass);
+											strcpy(allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])], newpass);
+											
 											return;
 										}
 									}
