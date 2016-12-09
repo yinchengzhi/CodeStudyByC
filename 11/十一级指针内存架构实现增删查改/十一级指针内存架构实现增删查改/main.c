@@ -1,7 +1,7 @@
 #include"data.h"
 
 char *path = "G:\\Bigdata.txt";
-char *sortpath = "G:\\Bigdatasort.txt";
+char *sortpath = "G:\\QQhaihuaSort.txt";
 
 void main() {
 
@@ -12,6 +12,10 @@ void main() {
 	//printf("%s", p);
 
 	init();
+	printf("init over sorttofile start");
+	sorttofile();
+	printf("\n sorttofile end");
+
 	//while (1) {
 	//	char str[100] = { 0 };
 	//	printf("请输入要查找的QQ:%s", str);
@@ -83,6 +87,32 @@ void main() {
 	system("pause");
 }
 
+void memtofile(char **p, int deep, FILE *pf) {
+
+	if (p == NULL) {
+		return;
+	}
+	if (deep == 1) {
+		for (int i = 0; i < 10; i++) {
+			if (p[i] != NULL) {
+				fputs(p[i], pf);										//写入
+			}
+		}
+		
+		return;
+	}
+
+	for (int i = 0; i < 10; i++) {
+		memtofile(p[i], deep - 1, pf);									//递归写入
+	}
+}
+
 void sorttofile() {
+	FILE*pf = fopen(sortpath, "w");
+	memtofile(allP, 10, pf);											//写入
+
+
+	fclose(pf);
+
 
 }

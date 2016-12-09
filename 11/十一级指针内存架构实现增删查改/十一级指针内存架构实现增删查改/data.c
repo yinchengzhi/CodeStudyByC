@@ -192,12 +192,12 @@ void deleteit(char *str) {
 							if (allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])]) {
 								if (allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])]) {
 									if (allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])]) {
-										
+
 										if (allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])]) {
-											
+
 											//free(allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])]);
 											//allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])] = NULL;
-											
+
 											printf("%s\n", allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])]);
 											printf("ÒÑ¾­´æÔÚ");
 											return;
@@ -324,7 +324,7 @@ void changeit(char *str, char *newpass) {
 											int length = strlen(newpass);
 											allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])] = calloc(length + 1, 1);
 											strcpy(allP[getnum(tmp[0])][getnum(tmp[1])][getnum(tmp[2])][getnum(tmp[3])][getnum(tmp[4])][getnum(tmp[5])][getnum(tmp[6])][getnum(tmp[7])][getnum(tmp[8])][getnum(tmp[9])], newpass);
-											
+
 											return;
 										}
 									}
