@@ -20,7 +20,7 @@ void test2() {		//111
 	}
 }
 
-void test4() {		//1111
+void test3() {		//1111
 	num++;
 	for (int i = 0; i < 10; i++) {
 		num++;
