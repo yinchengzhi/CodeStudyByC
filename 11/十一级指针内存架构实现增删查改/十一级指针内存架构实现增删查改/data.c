@@ -63,7 +63,7 @@ char *convertQQ(char*str) {
 	return tmp;
 }
 
-int isallnum(char *str) {														//ÅÐ¶Ï×Ö·û´®
+int isallnum(char *str) {														//ÅÐ¶Ï×Ö·û´®ÊÇ·ñÓÐ·Ç·¨×Ö·û
 	while (*str) {
 		str++;
 		if (*str < '0' || *str>'9') {
