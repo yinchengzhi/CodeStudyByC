@@ -44,7 +44,7 @@ void main() {
 			char str[100] = { 0 };
 			printf("ÇëÊäÈëÒªÉ¾³ıµÄQQ", str);
 			scanf("%s", str);
-			search(str);
+			deleteit(str);
 			puts("delete over");
 			break;
 		}
