@@ -14,9 +14,7 @@ void runfollowme() {
 	//01 0x300500
 	//putitout(num);
 	//"num"
-
 	printf("hello world");
 	add(10, 20);					//ºô½ÐÄ³Ò»¸öº¯Êý
-
 	system("pause");
 }

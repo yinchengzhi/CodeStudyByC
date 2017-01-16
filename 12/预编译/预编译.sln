@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "预编译", "预编译\预编译.vcxproj", "{D9AC50E7-5D01-4180-B037-E34CF222741D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "测试", "测试\测试.vcxproj", "{BDD91E72-A71C-445E-9177-48D3D2F4B67B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{D9AC50E7-5D01-4180-B037-E34CF222741D}.Release|x64.Build.0 = Release|x64
 		{D9AC50E7-5D01-4180-B037-E34CF222741D}.Release|x86.ActiveCfg = Release|Win32
 		{D9AC50E7-5D01-4180-B037-E34CF222741D}.Release|x86.Build.0 = Release|Win32
+		{BDD91E72-A71C-445E-9177-48D3D2F4B67B}.Debug|x64.ActiveCfg = Debug|x64
+		{BDD91E72-A71C-445E-9177-48D3D2F4B67B}.Debug|x64.Build.0 = Debug|x64
+		{BDD91E72-A71C-445E-9177-48D3D2F4B67B}.Debug|x86.ActiveCfg = Debug|Win32
+		{BDD91E72-A71C-445E-9177-48D3D2F4B67B}.Debug|x86.Build.0 = Debug|Win32
+		{BDD91E72-A71C-445E-9177-48D3D2F4B67B}.Release|x64.ActiveCfg = Release|x64
+		{BDD91E72-A71C-445E-9177-48D3D2F4B67B}.Release|x64.Build.0 = Release|x64
+		{BDD91E72-A71C-445E-9177-48D3D2F4B67B}.Release|x86.ActiveCfg = Release|Win32
+		{BDD91E72-A71C-445E-9177-48D3D2F4B67B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
