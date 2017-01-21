@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "define连带替换", "defin
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rundefine", "rundefine\rundefine.vcxproj", "{7319FE55-77B3-4951-89F1-DB48763B66F5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "define高级用法", "define高级用法\define高级用法.vcxproj", "{4A32EB44-37F0-49E7-9286-C9A8734B0BD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{7319FE55-77B3-4951-89F1-DB48763B66F5}.Release|x64.Build.0 = Release|x64
 		{7319FE55-77B3-4951-89F1-DB48763B66F5}.Release|x86.ActiveCfg = Release|Win32
 		{7319FE55-77B3-4951-89F1-DB48763B66F5}.Release|x86.Build.0 = Release|Win32
+		{4A32EB44-37F0-49E7-9286-C9A8734B0BD8}.Debug|x64.ActiveCfg = Debug|x64
+		{4A32EB44-37F0-49E7-9286-C9A8734B0BD8}.Debug|x64.Build.0 = Debug|x64
+		{4A32EB44-37F0-49E7-9286-C9A8734B0BD8}.Debug|x86.ActiveCfg = Debug|Win32
+		{4A32EB44-37F0-49E7-9286-C9A8734B0BD8}.Debug|x86.Build.0 = Debug|Win32
+		{4A32EB44-37F0-49E7-9286-C9A8734B0BD8}.Release|x64.ActiveCfg = Release|x64
+		{4A32EB44-37F0-49E7-9286-C9A8734B0BD8}.Release|x64.Build.0 = Release|x64
+		{4A32EB44-37F0-49E7-9286-C9A8734B0BD8}.Release|x86.ActiveCfg = Release|Win32
+		{4A32EB44-37F0-49E7-9286-C9A8734B0BD8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
