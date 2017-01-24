@@ -1,1 +1,0 @@
-printf("helloworld,hello fang,please sing");
