@@ -7,6 +7,9 @@
 #pragma hdrstop("1.pch")			
 #pragma check_stack(on)					//off自动检查栈
 
+//g全局优化,s,t	//代码体积与速度 y框架指针
+#pragma optimize("g",on)				//代码优化
+
 void main() {
 
 
