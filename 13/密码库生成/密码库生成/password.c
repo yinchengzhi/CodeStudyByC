@@ -24,7 +24,23 @@ int com(void *p1,void *p2) {
 struct info *pall = NULL;
 
 void writetofile() {
-	int a[10] = { 1,2,3,1,2,1,3,2,4,1 };
+	FILE *pf = fopen(pathsortbypass, "w");
+	for (int i = 0; i < N; i++) {
+		int j = 1;													//出现一次
+		while (strcmp(pall[i].str, pall[i + 1].str) == 0) {
+			i++;													//循环前进
+			j++;													//计数
+		}
+	}
+
+	fclose(pf);
+}
+
+
+void writetofile_test() {
+	//int a[10] = { 1,2,3,1,2,1,3,2,4,1 };
+	int a[10] = { 1,1,1,1,2,2,2,3,3,4 };
+
 	//	1111 222 33 4
 	//1 4
 	//2 3
@@ -33,7 +49,7 @@ void writetofile() {
 	for (int i = 0; i < 10; i++) {
 		printf("%d", a[i]);
 		int j = 1;
-		while (a[i] == a[j + 1]) {
+		while (a[i] == a[i + 1]) {
 			i++;								//循环下去
 			j++;								//次数
 		}
@@ -102,6 +118,6 @@ int getN(char *path) {
 
 void main() {
 	//printf("%d", getN(path));
-
+	writetofile();
 	system("pause");
 }
