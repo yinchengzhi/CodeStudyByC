@@ -24,16 +24,37 @@ int com(void *p1,void *p2) {
 struct info *pall = NULL;
 
 void writetofile() {
+
+	time_t start, end;
+	time(&start);
+
 	FILE *pf = fopen(pathsortbypass, "w");
 	for (int i = 0; i < N; i++) {
+
+		//5----pass
+		char allstr[100] = { 0 };
+		char istr[100] = { 0 };
+		strcpy(istr, pall[i].str);
+
+
+		//yincheng-5
+
 		int j = 1;													//出现一次
 		while (strcmp(pall[i].str, pall[i + 1].str) == 0) {
 			i++;													//循环前进
 			j++;													//计数
 		}
+
+		sprintf(allstr, "%d----%s", j, istr);						//合成字符串写入
+
+		fputs(allstr, pf);
+
 	}
 
 	fclose(pf);
+
+	time(&end);
+	printf("写入到文件花费%f秒\n", difftime(end, start));
 }
 
 
@@ -65,7 +86,7 @@ void sort() {
 	qsort(pall, N, sizeof(struct info), com);
 
 	time(&end);
-	printf("文件读取花费%f秒", difftime(end, start));
+	printf("排序花费%f秒\n", difftime(end, start));
 
 }
 
@@ -95,7 +116,7 @@ void init() {
 
 	fclose(pf);
 	time(&end);
-	printf("文件读取花费%f秒", difftime(end, start));
+	printf("文件读取花费%f秒\n", difftime(end, start));
 }
 
 
@@ -117,7 +138,12 @@ int getN(char *path) {
 }
 
 void main() {
+	
 	//printf("%d", getN(path));
+	//writetofile();
+
+	init();
+	sort();
 	writetofile();
 	system("pause");
 }
